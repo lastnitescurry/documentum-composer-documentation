@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ie.lastnitescurry.documentum-composer-documentation</groupId>
+  <artifactId>HelloWorld</artifactId>
+  <packaging>jar</packaging>
+  <version>7.3</version>
+
+  <description>Example Composer Project</description>
+
+  <parent>
+    <groupId>ie.lastnitescurry</groupId>
+    <artifactId>documentum-composer-documentation</artifactId>
+    <version>7.3</version>
+  </parent>
+
+    <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.8</version>
+        <inherited>false</inherited>
+        <executions>
+          <execution>
+            <id>composer.dar.build</id>
+            <!-- https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html goal: package, Called before goal "install" and after goal: test goal: deploy, Called after goal "install" -->
+            <phase>pre-site</phase>
+            <configuration>
+              <target>
+                <!-- Delete Composer Workspace folders -->
+                <delete failonerror="false" includeemptydirs="true" dir="${workspace.build.dir}/DocumentumCoreProject" />
+                <delete failonerror="false" includeemptydirs="true" dir="${workspace.build.dir}/TCMReferenceProject" />
+                <delete failonerror="false" includeemptydirs="true" dir="${workspace.build.dir}/.metadata" />
+                <!-- Delete previous dars -->
+                <delete>
+                  <fileset dir="${project.basedir}" includes="**/*.dar" />
+                </delete>
+
+                <!-- Delete Composer Workspace folders -->
+                <delete failonerror="false" includeemptydirs="true" dir="${workspace.build.dir}/DocumentumCoreProject" />
+                <delete failonerror="false" includeemptydirs="true" dir="${workspace.build.dir}/TCMReferenceProject" />
+                <delete failonerror="false" includeemptydirs="true" dir="${workspace.build.dir}/.metadata" />
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
