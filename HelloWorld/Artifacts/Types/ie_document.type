@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Artifact:Artifact xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Artifact="http://documentum.emc.com/infrastructure/12012007/artifact" xmlns:dclass="http://documentum.emc.com/artifact/12012007/dclass" urn="urn:com.emc.ide.artifact.dclass/ie_document?artifactURI=file:/F:/Workspaces/Composer_3.8_64bit/HelloWorld/Artifacts/Types/ie_document.type" categoryId="com.emc.ide.artifact.dclass">
+  <dataModel xsi:type="dclass:DClass">
+    <type name="ie_document">
+      <primaryElement>
+        <typeAnnotations xsi:type="dclass:NLSDDInfoSet">
+          <locales xsi:type="dclass:TypeNLSDDInfo" label_text="IE Document" help_text="Help me... please o pretty please help me" comment_text="Pesky developers always causing trouble... oops I'm one... o no!!" nls_key="en"/>
+        </typeAnnotations>
+        <typeAnnotations xsi:type="dclass:TypeDDInfo" ignore_constraints="INHERIT" is_searchable="INHERIT"/>
+      </primaryElement>
+      <super_name href="urn:com.emc.ide.artifact.dclass/dm_document?name=dm_document#//@dataModel"/>
+    </type>
+  </dataModel>
+  <viewModel xsi:type="Artifact:DefaultArtifactViewModel"/>
+</Artifact:Artifact>
