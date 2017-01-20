@@ -28,19 +28,9 @@
             <phase>pre-site</phase>
             <configuration>
               <target>
-                <!-- Delete Composer Workspace folders -->
-                <delete failonerror="false" includeemptydirs="true" dir="${workspace.build.dir}/DocumentumCoreProject" />
-                <delete failonerror="false" includeemptydirs="true" dir="${workspace.build.dir}/TCMReferenceProject" />
-                <delete failonerror="false" includeemptydirs="true" dir="${workspace.build.dir}/.metadata" />
-                <!-- Delete previous dars -->
-                <delete>
-                  <fileset dir="${project.basedir}" includes="**/*.dar" />
-                </delete>
-
-                <!-- Delete Composer Workspace folders -->
-                <delete failonerror="false" includeemptydirs="true" dir="${workspace.build.dir}/DocumentumCoreProject" />
-                <delete failonerror="false" includeemptydirs="true" dir="${workspace.build.dir}/TCMReferenceProject" />
-                <delete failonerror="false" includeemptydirs="true" dir="${workspace.build.dir}/.metadata" />
+              		<xslt basedir="${basedir}/Artifacts" destdir="${basedir}/src/site/markdown" style="types_to_markdown.xsl">
+                    <mapper type="glob" from="*.type" to="*.md" />
+                  </xslt>
               </target>
             </configuration>
             <goals>
