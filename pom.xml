@@ -7,7 +7,7 @@
   <version>7.3</version>
 
   <description>Master POM from here you can build entire project and publish project documentation</description>
-  <url>https://tomcat.apache.org/download-80.cgi</url>
+  <url>https://github.com/lastnitescurry/documentum-composer-documentation</url>
   <inceptionYear>2017</inceptionYear>
 
   <modules>

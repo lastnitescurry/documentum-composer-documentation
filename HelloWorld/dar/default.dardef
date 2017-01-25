@@ -3,6 +3,7 @@
   <dataModel xsi:type="dardef:DarDef" objectName="HelloWorld" contentType="jar" sourceDir="bin" name="HelloWorld">
     <objectType href="urn:com.emc.ide.artifact.dclass/dmc_dar?artifactURI=platform:/resource/DFS2/inst/dclass/dmc_dar.type#//@dataModel"/>
     <version/>
+    <artifacts xsi:type="dclass:DClass" href="urn:com.emc.ide.artifact.dclass/ie_small_fry?artifactURI=file:/F:/PublicGitHub/documentum-composer-documentation/HelloWorld/Artifacts/Types/ie_small_fry.type#//@dataModel"/>
     <artifacts xsi:type="dclass:DClass" href="urn:com.emc.ide.artifact.dclass/ie_document?artifactURI=file:/F:/Workspaces/Composer_3.8_64bit/HelloWorld/Artifacts/Types/ie_document.type#//@dataModel"/>
     <artifacts xsi:type="installparameter:FolderParameter" href="urn:com.emc.ide.folderparameter/Dar+Install+Folder?artifactURI=file:/F:/Workspaces/Composer_3.8_64bit/HelloWorld/Artifacts/Installation%20Parameters/darinstallfolder.parameter#//@dataModel"/>
     <artifacts xsi:type="dclass:DClass" href="urn:com.emc.ide.artifact.dclass/dmc_dar?artifactURI=platform:/resource/DFS2/inst/dclass/dmc_dar.type#//@dataModel"/>
