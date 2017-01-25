@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<project name="Ant to Dot" default="transform">
+	<description>
+Run Ant2dot on some of my old xslt files - http://ant2dot.sourceforge.net/#how
+	</description>
+
+	<property name="ant2dot.xsl" value="${basedir}/src/xslt/ant2dot.xsl" />
+	<property name="bin.dir" value="${basedir}/target" />
+
+	<!-- ================================= 
+          target: transform              
+         ================================= -->
+	<target name="transform" description="Run Ant to Dot with various options">
+		<delete dir="${bin.dir}" failonerror="false" />
+		<mkdir dir="${bin.dir}" />
+		<antcall target="ant2dot">
+			<param name="build.xml" value="${basedir}/src/ant/build.xml" />
+		</antcall>
+		<antcall target="ant2dot">
+			<param name="build.xml" value="${basedir}/src/ant/workspaceShared.xml" />
+		</antcall>
+		<antcall target="ant2dot-simple.xml">
+			<param name="build.xml" value="${basedir}/src/ant/build.xml" />
+		</antcall>
+		<antcall target="ant2dot-simple.xml">
+			<param name="build.xml" value="${basedir}/src/ant/workspaceShared.xml" />
+		</antcall>
+		<antcall target="ant2dot-all-options">
+			<param name="build.xml" value="${basedir}/src/ant/build.xml" />
+		</antcall>
+		<antcall target="ant2dot-all-options">
+			<param name="build.xml" value="${basedir}/src/ant/workspaceShared.xml" />
+		</antcall>
+	</target>
+
+	<target name="ant2dot">
+		<basename property="basename.script" file="${build.xml}" suffix=".xml" />
+		<property name="dot.file" value="${bin.dir}/${basename.script}.dot" />
+		<property name="png.file" value="${bin.dir}/${basename.script}.png" />
+		<!-- STEP 2: generate the DOT file ("build.dot" or something similar) -->
+		<xslt in="${build.xml}" out="${dot.file}" style="${ant2dot.xsl}" />
+		<!-- STEP 3: generate the PNG file ("build.png" or something similar) -->
+		<exec executable="dot.exe" dir="${bin.dir}">
+			<arg value="-Tpng" />
+			<arg value="${dot.file}" />
+			<arg value="-o" />
+			<arg value="${png.file}" />
+		</exec>
+	</target>
+
+	<target name="ant2dot-simple.xml" description="Puts box around everything and label in bottom right">
+		<basename property="basename.script" file="${build.xml}" suffix=".xml" />
+		<property name="dot.file" value="${bin.dir}/${basename.script}-simple.dot" />
+		<property name="png.file" value="${bin.dir}/${basename.script}-simple.png" />
+		<!-- STEP 2: generate the DOT file ("build.dot" or something similar) -->
+		<xslt in="${build.xml}" out="${dot.file}" style="${ant2dot.xsl}">
+			<param name="graph.label" expression="simple.xml" />
+		</xslt>
+		<!-- STEP 3: generate the PNG file ("build.png" or something similar) -->
+		<exec executable="dot.exe" dir="${bin.dir}">
+			<arg value="-Tpng" />
+			<arg value="${dot.file}" />
+			<arg value="-o" />
+			<arg value="${png.file}" />
+		</exec>
+	</target>
+	<target name="ant2dot-all-options" description="Puts box around everything and label in bottom right">
+		<basename property="basename.script" file="${build.xml}" suffix=".xml" />
+		<property name="dot.file" value="${bin.dir}/${basename.script}-all.dot" />
+		<property name="png.file" value="${bin.dir}/${basename.script}-all.png" />
+		<!-- STEP 2: generate the DOT file ("build.dot" or something similar) -->
+		<xslt in="${build.xml}" out="${dot.file}" style="${ant2dot.xsl}">
+			<param name="graph.label" expression="simple.xml" />
+			<param name="create.project.node" expression="true"/>
+			<param name="use.target.description" expression="true"/>
+			<param name="use.target.conditions" expression="true"/>
+		</xslt>
+		<!-- STEP 3: generate the PNG file ("build.png" or something similar) -->
+		<exec executable="dot.exe" dir="${bin.dir}">
+			<arg value="-Tpng" />
+			<arg value="${dot.file}" />
+			<arg value="-o" />
+			<arg value="${png.file}" />
+		</exec>
+	</target>
+
+</project>
