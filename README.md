@@ -18,3 +18,8 @@
 - http://stackoverflow.com/questions/8959683/xslt-taking-2-xml-files-as-input-and-generating-output-xml-file
 - http://stackoverflow.com/questions/18549777/how-to-process-all-data-from-multiple-xml-files-after-merging-using-xsl
 - http://www.ibm.com/developerworks/library/x-tipcombxslt/
+
+#### Interactive graphs
+- http://stamm-wilbrandt.de/GraphvizFiddle
+- http://www.graphviz.org/content/interactive-graphs
+

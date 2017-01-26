@@ -9,6 +9,11 @@
 	<xsl:strip-space elements="*" />
 	<!-- global graph parameter(s) -->
 	<xsl:param name="artifacts.dir">Artifacts</xsl:param>
+	<!-- For clickable images -->
+	<xsl:param name="site.url">__UNDEF__</xsl:param>
+	<xsl:param name="site.docs.url">__UNDEF__</xsl:param>
+	<xsl:param name="site.docs.ext">.md</xsl:param>
+	
 	<xsl:param name="graph.rankdir">LR</xsl:param><!-- "TB" -->
 	<!-- optional color parameter(s) -->
 	<xsl:param name="project.node.fill.color">#CCCCCC</xsl:param>
@@ -138,15 +143,19 @@
 		 label="<xsl:value-of select="normalize-space($type.name)"/>"  
 		 , fillcolor="<xsl:value-of select="$local.node.fill.color"/>"
 		 , fontcolor="<xsl:value-of select="$local.node.font.color"/>"
+		 
+		<xsl:if test="$site.docs.url != '__UNDEF__'">
+			<xsl:value-of select="concat(', URL=&quot;', $site.docs.url, '/', $type.name, $site.docs.ext, '&quot;')" />
+		</xsl:if> 
 		];
 		<xsl:if test="$super.name != '__UNDEF__'">
 			"<xsl:value-of select="normalize-space($type.name)"/>" -> "<xsl:value-of select="normalize-space($super.name)"/>"
-		</xsl:if> 
+		</xsl:if>
 
 	</xsl:template>
 
 	<xsl:template name="create-dot-footer">
-		}<!-- terminate cluster subgraph -->
+			}<!-- terminate cluster subgraph -->
 		}<!-- terminate digraph -->
 	</xsl:template>
 

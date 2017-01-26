@@ -24,11 +24,7 @@
 				<inherited>false</inherited>
 				<executions>
 					<execution>
-						<id>composer.dar.build</id>
-						<!-- https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html 
-							goal: package, Called before goal "install" and after goal: test goal: deploy, 
-							Called after goal "install" -->
-						<!-- <phase>pre-site</phase> -->
+						<id>composer.documentation.markdown</id>
 						<phase>compile</phase>
 						<configuration>
 							<target>
@@ -36,15 +32,35 @@
 									style="${basedir}/src/xslt/types_to_markdown.xsl">
 									<mapper type="glob" from="*.type" to="*.md" />
 								</xslt>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>composer.documentation.graphviz</id>
+						<phase>compile</phase>
+						<configuration>
+							<target>
 								<property name="dot.file"
 									value="${project.build.directory}/dar/default.dardef.dot" />
 								<property name="png.file"
 									value="${project.build.directory}/dar/default.dardef.png" />
+								<property name="map.file"
+									value="${project.build.directory}/dar/default.dardef.map" />
+								<property name="svg.file"
+									value="${project.build.directory}/dar/default.dardef.svg" />
+								<property name="pdf.file"
+									value="${project.build.directory}/dar/default.dardef.pdf" />
 
 								<mkdir dir="${project.build.directory}/dar" />
 								<xslt in="${basedir}/dar/default.dardef" out="${dot.file}"
 									style="${basedir}/src/xslt/type2dot.xsl">
 									<param name="artifacts.dir" expression="${basedir}/Artifacts" />
+									<param name="site.url" expression="http://github.com/lastnitescurry/documentum-composer-documentation/tree/master/HelloWorld/src/site/markdown/Types" />
+									<param name="site.docs.url" expression="http://github.com/lastnitescurry/documentum-composer-documentation/blob/master/HelloWorld/src/site/markdown/Types" />
+									<param name="site.docs.ext" expression=".md" />
 								</xslt>
 								<!-- STEP 3: generate the PNG file ("build.png" or something similar) -->
 								<exec executable="dot.exe" dir="${project.build.directory}/dar">
@@ -52,6 +68,24 @@
 									<arg value="${dot.file}" />
 									<arg value="-o" />
 									<arg value="${png.file}" />
+								</exec>
+								<exec executable="dot.exe" dir="${project.build.directory}/dar">
+									<arg value="-Timap" />
+									<arg value="${dot.file}" />
+									<arg value="-o" />
+									<arg value="${map.file}" />
+								</exec>
+								<exec executable="dot.exe" dir="${project.build.directory}/dar">
+									<arg value="-Tsvg" />
+									<arg value="${dot.file}" />
+									<arg value="-o" />
+									<arg value="${svg.file}" />
+								</exec>
+								<exec executable="dot.exe" dir="${project.build.directory}/dar">
+									<arg value="-Tpdf" />
+									<arg value="${dot.file}" />
+									<arg value="-o" />
+									<arg value="${pdf.file}" />
 								</exec>
 							</target>
 						</configuration>
