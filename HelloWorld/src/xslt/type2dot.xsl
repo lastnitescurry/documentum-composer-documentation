@@ -20,7 +20,23 @@
 	<xsl:param name="subgraph.fill.color">#FFFFFF</xsl:param>
 
 	<xsl:template match="/Artifact:Artifact">
+		<!-- STEP 1: generate the DOT header -->
 		<xsl:apply-templates select="dataModel" />
+		<!-- STEP 2: generate the DOT header -->
+		
+		<xsl:call-template name="create-local-node">
+			<xsl:with-param name="type.name" select="concat('dm_document')" />
+			<xsl:with-param name="super.name" select="concat('dm_sysobject')" />
+		</xsl:call-template>
+		<xsl:call-template name="create-local-node">
+			<xsl:with-param name="type.name" select="concat('dm_folder')" />
+			<xsl:with-param name="super.name" select="concat('dm_sysobject')" />
+		</xsl:call-template>
+		<xsl:call-template name="create-local-node">
+			<xsl:with-param name="type.name" select="concat('dm_sysobject')" />
+			<xsl:with-param name="super.name" select="concat('__UNDEF__')" />
+		</xsl:call-template>
+		
 		<xsl:apply-templates select="dataModel/artifacts" />
 
 		<!-- STEP FINAL: generate the DOT footer -->
@@ -31,7 +47,6 @@
 		<xsl:variable name="graph.label">
 			<xsl:value-of select="@name" />
 		</xsl:variable>
-		<!-- STEP 1: generate the DOT header -->
 		<xsl:call-template name="create-dot-header">
 			<xsl:with-param name="dot.graph.label" select="$graph.label" />
 			<xsl:with-param name="dot.graph.rankdir" select="$graph.rankdir" />
@@ -124,8 +139,9 @@
 		 , fillcolor="<xsl:value-of select="$local.node.fill.color"/>"
 		 , fontcolor="<xsl:value-of select="$local.node.font.color"/>"
 		];
-		
-		"<xsl:value-of select="normalize-space($type.name)"/>" -> "<xsl:value-of select="normalize-space($super.name)"/>" 
+		<xsl:if test="$super.name != '__UNDEF__'">
+			"<xsl:value-of select="normalize-space($type.name)"/>" -> "<xsl:value-of select="normalize-space($super.name)"/>"
+		</xsl:if> 
 
 	</xsl:template>
 
