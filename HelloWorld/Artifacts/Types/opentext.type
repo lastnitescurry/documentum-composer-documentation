@@ -4,7 +4,7 @@
     <type name="opentext">
       <primaryElement>
         <typeAnnotations xsi:type="dclass:NLSDDInfoSet">
-          <locales xsi:type="dclass:TypeNLSDDInfo" nls_key="en"/>
+          <locales xsi:type="dclass:TypeNLSDDInfo" help_text="OpenText Buys Documentum" comment_text="http://www.opentext.com/who-we-are/press-releases?id=50C4932B2610432292379C1FE453D6BD" nls_key="en"/>
         </typeAnnotations>
         <typeAnnotations xsi:type="dclass:TypeDDInfo" ignore_constraints="INHERIT" is_searchable="INHERIT"/>
       </primaryElement>
