@@ -8,18 +8,18 @@ Now that the world has moved to Github/Gitlab/... plain text markdown is a super
 After discovering http://ant2dot.sourceforge.net I added generation of a object model diagram
 
 ## Key Files
-- [Source object model xml](HelloWorld/Artifacts/Types/ie_document.type)
+- [example source object model xml](HelloWorld/Artifacts/Types/ie_document.type)
 - [maven pom to run transform](HelloWorld/pom.xml)
 
 #### Type to Markdown
-- [xslt to do transform](HelloWorld/xslt/types_to_markdown.xsl)
+- [xslt to do transform](HelloWorld/src/xslt/types_to_markdown.xsl)
 - [Generated Markdown file of Object Type](HelloWorld/src/site/markdown/Types/ie_document.md)
 
 #### dardef and types to object model diagram
-- [xslt to do transform](HelloWorld/xslt/type2dot.xsl)
-- [Object Model - SVG](HelloWorld/src/site/resource/default.dardef.svg)
-- [Object Model - PDF](HelloWorld/src/site/resource/default.dardef.pdf)
-- [Object Model - PNG](HelloWorld/src/site/resource/default.dardef.png)
+- [xslt to do transform](HelloWorld/src/xslt/type2dot.xsl)
+- [Object Model - SVG](HelloWorld/src/site/resources/default.dardef.svg)
+- [Object Model - PDF](HelloWorld/src/site/resources/default.dardef.pdf)
+- [Object Model - PNG](HelloWorld/src/site/resources/default.dardef.png)
 
 ## References
 
