@@ -1,10 +1,25 @@
 # documentum-composer-documentation
 
+Play ground for transforming Documentum Composer XML definition files into useful documentation for management.
+Now that the world has moved to Github/Gitlab/... plain text markdown is a superior format compared to HTML.
+* minimal plain text so can be added to source code along with Composer changes
+* Github & Gitlab can render into pretty format for managers
+
+After discovering http://ant2dot.sourceforge.net I added generation of a object model diagram
+
 ## Key Files
 - [Source object model xml](HelloWorld/Artifacts/Types/ie_document.type)
 - [maven pom to run transform](HelloWorld/pom.xml)
-- [xslt to do transform](HelloWorld/types_to_markdown.xsl)
+
+#### Type to Markdown
+- [xslt to do transform](HelloWorld/xslt/types_to_markdown.xsl)
 - [Generated Markdown file of Object Type](HelloWorld/src/site/markdown/Types/ie_document.md)
+
+#### dardef and types to object model diagram
+- [xslt to do transform](HelloWorld/xslt/type2dot.xsl)
+- [Object Model - SVG](HelloWorld/src/site/resource/default.dardef.svg)
+- [Object Model - PDF](HelloWorld/src/site/resource/default.dardef.pdf)
+- [Object Model - PNG](HelloWorld/src/site/resource/default.dardef.png)
 
 ## References
 

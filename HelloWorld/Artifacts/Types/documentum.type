@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Artifact:Artifact xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Artifact="http://documentum.emc.com/infrastructure/12012007/artifact" xmlns:dclass="http://documentum.emc.com/artifact/12012007/dclass" urn="urn:com.emc.ide.artifact.dclass/documentum?artifactURI=file:/F:/PublicGitHub/documentum-composer-documentation/HelloWorld/Artifacts/Types/documentum.type" categoryId="com.emc.ide.artifact.dclass">
+  <dataModel xsi:type="dclass:DClass">
+    <type name="documentum">
+      <primaryElement>
+        <typeAnnotations xsi:type="dclass:NLSDDInfoSet">
+          <locales xsi:type="dclass:TypeNLSDDInfo" nls_key="en"/>
+        </typeAnnotations>
+        <typeAnnotations xsi:type="dclass:TypeDDInfo" ignore_constraints="INHERIT" is_searchable="INHERIT"/>
+      </primaryElement>
+      <super_name href="urn:com.emc.ide.artifact.dclass/dm_sysobject?name=dm_sysobject#//@dataModel"/>
+    </type>
+  </dataModel>
+  <viewModel xsi:type="Artifact:DefaultArtifactViewModel"/>
+</Artifact:Artifact>

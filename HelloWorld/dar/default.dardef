@@ -8,6 +8,9 @@
     <artifacts xsi:type="installparameter:FolderParameter" href="urn:com.emc.ide.folderparameter/Dar+Install+Folder?artifactURI=file:/F:/Workspaces/Composer_3.8_64bit/HelloWorld/Artifacts/Installation%20Parameters/darinstallfolder.parameter#//@dataModel"/>
     <artifacts xsi:type="dclass:DClass" href="urn:com.emc.ide.artifact.dclass/dmc_dar?artifactURI=platform:/resource/DFS2/inst/dclass/dmc_dar.type#//@dataModel"/>
     <artifacts xsi:type="dardef:DarDef" href="urn:com.emc.ide.artifact.dardef/default?artifactURI=file:/F:/Workspaces/Composer_3.8_64bit/HelloWorld/dar/default.dardef#//@dataModel"/>
+    <artifacts xsi:type="dclass:DClass" href="urn:com.emc.ide.artifact.dclass/documentum?artifactURI=file:/F:/PublicGitHub/documentum-composer-documentation/HelloWorld/Artifacts/Types/documentum.type#//@dataModel"/>
+    <artifacts xsi:type="dclass:DClass" href="urn:com.emc.ide.artifact.dclass/emc?artifactURI=file:/F:/PublicGitHub/documentum-composer-documentation/HelloWorld/Artifacts/Types/emc.type#//@dataModel"/>
+    <artifacts xsi:type="dclass:DClass" href="urn:com.emc.ide.artifact.dclass/opentext?artifactURI=file:/F:/PublicGitHub/documentum-composer-documentation/HelloWorld/Artifacts/Types/opentext.type#//@dataModel"/>
     <darInstallOptionsSet>
       <location xsi:type="installparameter:FolderParameter" href="urn:com.emc.ide.folderparameter/Dar+Install+Folder?artifactURI=file:/F:/Workspaces/Composer_3.8_64bit/HelloWorld/Artifacts/Installation%20Parameters/darinstallfolder.parameter#//@dataModel"/>
       <upgradeOption xsi:type="dardef:UpgradeOption"/>

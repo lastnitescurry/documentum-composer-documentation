@@ -144,7 +144,7 @@
 		 , fillcolor="<xsl:value-of select="$local.node.fill.color"/>"
 		 , fontcolor="<xsl:value-of select="$local.node.font.color"/>"
 		 
-		<xsl:if test="$site.docs.url != '__UNDEF__'">
+		<xsl:if test="$site.docs.url != '__UNDEF__' and not(starts-with($type.name, 'dm_'))">
 			<xsl:value-of select="concat(', URL=&quot;', $site.docs.url, '/', $type.name, $site.docs.ext, '&quot;')" />
 		</xsl:if> 
 		];
